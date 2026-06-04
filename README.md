@@ -1,107 +1,152 @@
-# Loan Default Prediction Using Explainable AI Techniques
+# 🏦 LoanAI — AI-Powered Loan Default Prediction System
 
-## 📌 Project Overview
-This project is an AI-powered web application that predicts whether a loan applicant is likely to default based on various financial and personal factors. The system uses Machine Learning algorithms along with Explainable AI (XAI) techniques to provide transparent and understandable predictions.
+> **B.Tech Final Year Major Project | IEEE Paper Implementation | Hackathon Project**
 
-The aim of this project is to assist banks and financial institutions in making better loan approval decisions while improving trust through model explainability.
-
----
-
-## 🎯 Objectives
-- Predict the possibility of loan default.
-- Improve the accuracy of loan risk assessment.
-- Provide explanations for predictions using Explainable AI.
-- Develop a user-friendly web interface for easy interaction.
+A complete, production-grade AI-powered loan management platform with Explainable AI (XAI), real-time EMI calculation, SHAP-based predictions, and interactive analytics dashboards.
 
 ---
 
-## 🛠️ Technologies Used
+## 🎯 Features
 
-- Programming Language: Python
-- Machine Learning: Scikit-learn
-- Data Processing: Pandas, NumPy
-- Web Framework: Flask
-- Visualization: Matplotlib, Seaborn
-- Explainable AI: SHAP / LIME
-- Frontend: HTML, CSS, Bootstrap
+| Feature | Description |
+|---|---|
+| 📋 Loan Application | Full form with 7 loan types, 6 banks |
+| 🧮 EMI Calculator | Real-time with amortization charts |
+| ✅ Eligibility Checker | Rule-based + scoring system |
+| 🤖 ML Prediction | XGBoost, RF, LR, DT models |
+| 🔍 XAI Dashboard | SHAP waterfall, force, summary plots |
+| 📊 Analytics | Plotly interactive dashboards |
+| ⚙️ Admin Panel | Application management, model stats |
+| 💬 AI Assistant | Rule-based chatbot for loan queries |
+| 📥 Report Download | PDF + CSV report generation |
 
-- -----
+---
 
+## 🛠️ Tech Stack
 
-## 📂 Project Structure
+- **Frontend:** Streamlit + Plotly
+- **ML:** Scikit-learn, XGBoost, Random Forest
+- **XAI:** SHAP (SHapley Additive exPlanations)
+- **Database:** SQLite
+- **Reports:** FPDF2
 
-```text
-Loan-Default-Prediction-XAI/
-│
-├── app.py
-├── train_model.py
-├── model.pkl
-├── dataset.csv
-├── templates/
-├── static/
-├── README.md
-└── requirements.txt
+---
+
+## 🚀 Quick Start
+
+### 1. Install Dependencies
+
+```bash
+cd Loan_Default_Prediction_Project
+pip install -r requirements.txt
+```
+
+### 2. Run the Application
+
+```bash
+streamlit run app.py
+```
+
+### 3. First Launch
+
+- App auto-trains ML models on first run (~30 seconds)
+- Default admin: `admin` / `admin123`
+
+---
+
+## 📁 Project Structure
+
+```
+Loan_Default_Prediction_Project/
+├── app.py                  # Main Streamlit application (all pages)
+├── train_model.py          # ML training (RF, XGBoost, LR, DT)
+├── shap_explainer.py       # SHAP explanations module
+├── emi_calculator.py       # EMI formula + bank rates
+├── database.py             # SQLite operations
+├── report_generator.py     # PDF report generation
+├── requirements.txt        # Dependencies
+├── README.md               # This file
+├── dataset/                # Generated loan dataset (CSV)
+├── models/                 # Trained model .pkl files
+└── database/               # SQLite database file
 ```
 
 ---
 
-## ⚙️ Features
+## 🧠 Machine Learning Models
 
-- Loan default prediction.
-- Simple and interactive web interface.
-- Machine Learning model integration.
-- Explainable AI for prediction transparency.
-- Easy deployment and scalability.
+| Model | Notes |
+|---|---|
+| Random Forest | 200 estimators, depth 15 |
+| XGBoost | 200 estimators, lr=0.1 |
+| Logistic Regression | Scaled features |
+| Decision Tree | Depth 10 |
 
----
-
-## 🚀 How to Run
-
-1. Clone the repository.
-2. Install the required dependencies.
-3. Run the application using:
-   python app.py
-4. Open the application in your browser.
-
-
------
-
-## 📊 Working Flow
-
-1. User enters loan applicant details.
-2. Input data is processed.
-3. Trained ML model predicts default risk.
-4. Explainable AI module generates prediction explanation.
-5. Result is displayed through the web interface.
+Best model auto-selected by ROC-AUC score.
 
 ---
 
-## 🔮 Future Enhancements
+## 🔍 Explainable AI (SHAP)
 
-- Integration with real-time banking datasets.
-- Advanced Explainable AI visualizations.
-- Cloud deployment.
-- Mobile application support.
+SHAP values explain individual predictions:
 
----
-
-## 👥 Team Members
-
-- Geethanjali(23U11A6685)
-- Sana Yasmeen(23U11A6694)
-- S.Pavan Kumar(23U11A6698)
-
+- **Waterfall Plot:** Feature-by-feature impact on prediction
+- **Force Plot:** Risk vs protective factor visualization
+- **Summary Plot:** All feature SHAP values ranked
+- **Global Feature Importance:** Trained model's feature weights
 
 ---
 
-## 📚 Academic Purpose
+## 🏛️ Supported Banks & Loans
 
-This project was developed as a Mini Project for the Bachelor of Technology (B.Tech) program in Computer Science and Engineering (Artificial Intelligence & Machine Learning).
+Banks: SBI, HDFC, ICICI, Axis Bank, Canara Bank, Union Bank
+
+Loans: Personal, Home, Education, Vehicle, Gold, Business, Agricultural
+
+---
+
+## ☁️ Deployment
+
+### Streamlit Cloud
+1. Push to GitHub
+2. Go to [share.streamlit.io](https://share.streamlit.io)
+3. Connect repo → set `app.py` as main file
+
+### Render
+```bash
+# Build command
+pip install -r requirements.txt
+# Start command
+streamlit run app.py --server.port $PORT
+```
+
+### Railway
+```bash
+railway init
+railway add
+railway deploy
+```
+
+---
+
+## 📊 CIBIL Score Classification
+
+| Range | Category | Approval Chance |
+|---|---|---|
+| 750–900 | Excellent | High |
+| 650–750 | Good | Moderate |
+| 550–650 | Fair | Low |
+| 300–550 | Poor | Very Low |
+
+---
+
+## 👥 Author
+
+**B.Tech Final Year Project**  
+AI-Powered Loan Default Prediction Using Explainable AI Techniques
 
 ---
 
 ## 📄 License
 
-This project is intended for educational and academic purposes only.
-
-
+MIT License — Free to use for academic and educational purposes.
